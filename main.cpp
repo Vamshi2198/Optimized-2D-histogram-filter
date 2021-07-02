@@ -23,12 +23,15 @@ int main() {
 	vector < vector <char> > grid { {'r', 'g', 'r', 'r', 'r'}, {'g', 'r', 'r', 'g', 'r'}, {'r', 'g', 'r', 'r', 'r'} };
 	vector< vector <float> > beliefs;
 
+	int height = grid.size();
+	int width = grid[0].size();
+
 	cout << "number of iterations: " << iterations << " " << "\n";
 
 	// test initialize_beliefs
 	start = std::clock();
 	for (int i = 0; i < iterations; i++) {
-		beliefs = initialize_beliefs(grid);
+		beliefs = initialize_beliefs(height, width);
 	}
 	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
 	std::cout << "duration milliseconds initialize beliefs " << 1000 * duration << '\n';
