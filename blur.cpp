@@ -1,4 +1,5 @@
 #include "headers/blur.h"
+#include "headers/zeros.h"
 
 using namespace std;
 
@@ -11,8 +12,9 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 
 	int height = grid.size();
 	int width = grid[0].size();
-
-	static float center = 1.0 - blurring;
+	
+// OPTIMIZATION: Used static keyword function
+    static float center = 1.0 - blurring;
 	static float corner = blurring / 12.0;
 	static float adjacent = blurring / 6.0;
 
@@ -84,22 +86,10 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	DX.push_back(-1); DX.push_back(0); DX.push_back(1);
 	DY.push_back(-1); DY.push_back(0); DY.push_back(1);
 
-	int dx;
-	int dy;
-	int ii;
-	int jj;
-	int new_i;
-	int new_j;
-	float multiplier;
-	float newVal;
-
-	for (i=0; i<height; i++) {
-		newRow.clear();
-		for (j=0; j<width; j++) {
-			newRow.push_back(0.0);
-		}
-		newGrid.push_back(newRow);
-	}
+	int dx, dy, ii, jj, new_i, new_j, multiplier, newVal;
+  
+	// OPTIMIZATION: Used improved zeros function
+	newGrid = zeros(height, width);
 
 	for (i=0; i< height; i++ ) {
 		for (j=0; j<width; j++ ) {
