@@ -9,16 +9,13 @@ vector < vector <float> > blur(vector < vector < float> > grid, float blurring) 
 	vector <float> row;
 	vector <float> newRow;
 
-	int height;
-	int width;
-	float center, corner, adjacent;
+	int height = grid.size();
+	int width = grid[0].size();
 
-	height = grid.size();
-	width = grid[0].size();
+	static float center = 1.0 - blurring;
+	static float corner = blurring / 12.0;
+	static float adjacent = blurring / 6.0;
 
-	center = 1.0 - blurring;
-	corner = blurring / 12.0;
-	adjacent = blurring / 6.0;
 
 	int i, j;
 	float val;
