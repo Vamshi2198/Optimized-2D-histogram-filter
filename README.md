@@ -10,7 +10,7 @@
 1. Clone this repository using `git clone https://github.com/Vamshi2198/2D-histogram-filter`.
 2. Open the repository as a complete folder in VS Code.
 3. Open the terminal and compile the code
-   `g++ main.cpp blur_improved.cpp initialize_beliefs_improved.cpp move_improved.cpp normalize_improved.cpp print.cpp sense_improved.cpp zeros_improved.cpp`.
+   `g++ main.cpp blur.cpp initialize_beliefs.cpp move.cpp normalize.cpp print.cpp sense.cpp zeros.cpp`.
 4. Run the code 
    `./a.exe`
 
